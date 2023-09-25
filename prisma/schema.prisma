@@ -1,0 +1,87 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.sqlite"
+}
+
+model tenant{
+  id Int @id @default(autoincrement())
+  name String
+  website String
+  addressline String
+  city String
+  state String
+  ZIP Int
+  grade String
+}
+model user{
+  id Int @id @default(autoincrement())
+  role String
+  nickname String
+  firstname String
+  lastname String
+  gender String
+  class String
+  phone  String
+  mobile String
+  email String
+  birthday String
+  age Int
+  addressline String
+  city String
+  state String
+  ZIP Int
+  review Int
+  dateofhire String
+  tenantid Int
+  coin Int
+  service String
+  relatename String
+  relatephone String
+  contactid String
+}
+
+model role{
+  id Int @id @default(autoincrement())
+  name String
+  right String
+}
+
+model service{
+  id String @unique
+  name String
+  shortdesc String
+  fulldesc String
+  price Int
+  categoryid String
+  duration Int
+  backbar Int
+  active Boolean
+  tenantid Int
+}
+
+model order{
+  id Int @id @default(autoincrement())
+  customer Int
+  content String
+  datecreated String
+  dateschedule String
+  coupon Int
+  status String
+  invoiceid Int
+  tenantid Int
+}
+
+model coupon{
+  id Int @id @default(autoincrement())
+  name String
+  desc String
+  tenantid Int
+  active Boolean
+}
