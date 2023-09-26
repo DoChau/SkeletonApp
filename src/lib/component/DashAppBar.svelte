@@ -1,9 +1,8 @@
 <script lang="ts">
-	import '/src/app.postcss';
 	import { browser } from '$app/environment';
 
     // Types
-	import type { DrawerSettings } from '@skeletonlabs/skeleton';
+	import type { ModalSettings, DrawerSettings } from '@skeletonlabs/skeleton';
     
 	// Floating UI for Popups
 	import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
@@ -39,20 +38,50 @@
 		drawerStore.open(s);
 	}
 
-	let currentTile: number = 0;
+    // Search
+    function triggerSearch(): void {
+		const modal: ModalSettings = {
+			type: 'component',
+			component: 'modalSearch',
+			position: 'item-start'
+		};
+		modalStore.trigger(modal);
+	}
+
+	// Keyboard Shortcut (CTRL/⌘+K) to Focus Search
+	function onWindowKeydown(e: KeyboardEvent): void {
+		if ((e.metaKey || e.ctrlKey) && e.key === 'k') {
+			// Prevent default browser behavior of focusing URL bar
+			e.preventDefault();
+			// If modal currently open, close modal (allows to open/close search with CTRL/⌘+K)
+			$modalStore.length ? modalStore.close() : triggerSearch();
+		}
+	}
+
 </script>
 
 <AppBar>
     <svelte:fragment slot="lead">
-        <!-- Hamburger Menu -->
-		<button on:click={drawerOpen} class="btn-icon btn-icon-sm lg:!hidden">
-			<i class="fa-solid fa-bars text-xl" />
-		</button>	
-        
-        <strong class="text-xl uppercase">Booking App</strong>
+        <div class="flex items-center space-x-4">
+            <!-- Hamburger Menu -->
+            <button on:click={drawerOpen} class="btn-icon btn-icon-sm lg:!hidden">
+                <i class="fa-solid fa-bars text-xl" />
+            </button>	
+            
+            <!-- Logo -->
+            <strong class="text-xl uppercase">Booking App</strong>
+        </div>      
     </svelte:fragment>
+
     <svelte:fragment slot="trail">
-                        
+        <!-- Search -->
+		<div class="md:inline md:ml-4">
+			<button class="btn space-x-4 variant-soft hover:variant-soft-primary" on:click={triggerSearch}>
+				<i class="fa-solid fa-magnifying-glass text-sm" />
+				<small class="hidden md:inline-block">{isOsMac ? '⌘' : 'Ctrl'}+K</small>
+			</button>
+		</div>
+       
         <a
             class="btn btn-sm variant-ghost-surface"
             href="https://booking"

@@ -7,14 +7,14 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			title: 'Overview',
 			list: [
 				{ 
-                    href: '/dash/sales', 
-                    label: 'Sales', 
-                    keywords: 'sales, top, services, target' 
+                    href: '/dash/sale', 
+                    label: 'Sale', 
+                    keywords: 'sale, top, services, target' 
                 },
 				{ 
                     href: '/dash/top', 
                     label: 'Top', 
-                    keywords: 'sales, top, services, target' 
+                    keywords: 'sale, top, services, target' 
                 }
 			]
 		},
@@ -24,22 +24,22 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{ 
                     href: '/dash/compare', 
                     label: 'Compare', 
-                    keywords: 'sales, top, services, target' 
+                    keywords: 'sale, top, service, target' 
                 },
 			]
 		}
 	],
-	'/schedules': [
+	'/schedule': [
 		{
-			title: 'Appointments',
+			title: 'Appointment',
 			list: [
 				{
-					href: '/dash/appointments',
+					href: '/dash/appointment',
 					label: 'Upcoming',
 					keywords: 'today, appointment, booking, order'
 				},
 				{
-					href: '/dash/confirmations',
+					href: '/dash/confirmation',
 					label: 'Need confirmation',
 					keywords: 'confirmation, appointment, booking, order, confirm'
 				},
@@ -51,11 +51,11 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			]
 		},
 		{
-			title: 'Todos',
+			title: 'Todo',
 			list: [
 				{
-					href: '/dash/todos',
-					label: 'Todos',
+					href: '/dash/todo',
+					label: 'Todo',
 					keywords: 'todo, appointment, booking, order, kanban'
 				},
             
@@ -63,19 +63,19 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 		},
 		
 	],
-	'/users': [
+	'/user': [
         {
-			title: 'Services',
+			title: 'Service',
 			list: [
 				{
-					href: '/dash/services',
-					label: 'Services',
-					keywords: 'categories, appointment, booking, services'
+					href: '/dash/service',
+					label: 'Service',
+					keywords: 'category, appointment, booking, service'
 				},
                 {
-					href: '/dash/categories',
-					label: 'Categories',
-					keywords: 'categories, appointment, booking, services'
+					href: '/dash/category',
+					label: 'Category',
+					keywords: 'Category, appointment, booking, service'
 				}
 
 			]
@@ -84,14 +84,14 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 			title: 'Customer',
 			list: [
 				{
-					href: '/dash/customers',
+					href: '/dash/customer',
 					label: 'Upcomming',
 					keywords: 'todo, appointment, booking, order, kanban'
 				},
                 {
-					href: '/dash/customers-history',
+					href: '/dash/customer-history',
 					label: 'History',
-					keywords: 'customers, appointment, booking, order'
+					keywords: 'customer, appointment, booking, order'
 				}
 
 			]
@@ -102,44 +102,49 @@ export const menuNavLinks: Record<string, Array<{ title: string; list: List }>> 
 				{
 					href: '/dash/employee-top',
 					label: 'Top',
-					keywords: 'employee, list, rating, reviews,top'
+					keywords: 'employee, list, rating, review,top'
 				},
                 {
 					href: '/dash/employee-list',
 					label: 'List',
-					keywords: 'employee, list, rating, reviews'
+					keywords: 'employee, list, rating, review'
 				},
                 {
 					href: '/dash/employee-edit',
 					label: 'Edit',
-					keywords: 'customers, appointment, booking, order'
+					keywords: 'customer, appointment, booking, order'
 				}
 			]
 		},
 	],
 	'/accountant': [
 		{
-			title: 'Invoices',
+			title: 'Invoice',
 			list: [
                 {
-					href: '/dash/invoices',
-					label: 'Invoices',
-					keywords: 'Invoices, appointment, booking, order'
+					href: '/dash/invoice',
+					label: 'Invoice',
+					keywords: 'Invoice, appointment, booking, order'
 				},
 				{
-					href: '/dash/payments',
-					label: 'Payments',
-					keywords: 'Payments, appointment, booking, order'
-				},
+					href: '/dash/payment',
+					label: 'Payment',
+					keywords: ', appointment, booking, order'
+				}
+			]
+		},
+		{
+			title: 'Report',
+			list: [
                 {
-					href: '/dash/reports',
-					label: 'Reports',
-					keywords: 'Reports, appointment, booking, order'
+					href: '/dash/report',
+					label: 'Report',
+					keywords: 'Report, appointment, booking, order'
 				}
 			]
 		}
 	],
-    '/messages': [
+    '/message': [
 		{
 			title: 'Online Chat',
 			list: [
