@@ -6,7 +6,7 @@
 
 	onMount(() => {
 		if (loaded) {
-			goto(`/dash/sales`);
+			goto(`/dash/overview`);
 		}
 	});
 </script>
